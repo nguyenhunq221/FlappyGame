@@ -1,10 +1,3 @@
-/**
- * The SuperClass of every character that is controlled by the player
- * 
- * @author Lars Harmsen
- * Copyright (c) <2014> <Lars Harmsen - Quchen>
- */
-
 package com.quchen.flappycow.sprites;
 
 import com.quchen.flappycow.Game;

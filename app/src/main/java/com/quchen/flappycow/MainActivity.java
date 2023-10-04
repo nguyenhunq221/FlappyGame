@@ -1,10 +1,3 @@
-/**
- * Main Activity / Splashscreen with buttons.
- * 
- * @author Lars Harmsen
- * Copyright (c) <2014> <Lars Harmsen - Quchen>
- */
-
 package com.quchen.flappycow;
 
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -37,20 +30,6 @@ public class MainActivity extends BaseGameActivity {
         setSocket();
     }
 
-    public GoogleApiClient getApiClient(){
-        return mHelper.getApiClient();
-    }
-    
-    public void login() {
-        beginUserInitiatedSignIn();
-    }
-    
-    public void logout() {
-        signOut();
-        view.setOnline(false);
-        view.invalidate();
-    }
-    
     public void muteToggle() {
         if(volume != 0){
             volume = 0;
@@ -82,17 +61,12 @@ public class MainActivity extends BaseGameActivity {
 
     @Override
     public void onSignInFailed() {
-        Toast.makeText(this, "You're not logged in", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
     public void onSignInSucceeded() {
-        Toast.makeText(this, "You're logged in", Toast.LENGTH_SHORT).show();
-        view.setOnline(true);
-        view.invalidate();
-        if(AccomplishmentBox.isOnline(this)){
-            AccomplishmentBox.getLocal(this).submitScore(this, getApiClient());
-        }
+
     }
     
 }

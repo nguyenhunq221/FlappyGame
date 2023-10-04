@@ -1,19 +1,9 @@
-/**
- * Nyan Cat character
- * 
- * @author Lars Harmsen
- * Copyright (c) <2014> <Lars Harmsen - Quchen>
- * 
- * Nyan Cat was drawn by Christopher Torres and momo momo remixed the music by daniwell
- */
-
 package com.quchen.flappycow.sprites;
 
 import com.quchen.flappycow.Game;
 import com.quchen.flappycow.GameView;
 import com.quchen.flappycow.R;
 import com.quchen.flappycow.Util;
-
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 

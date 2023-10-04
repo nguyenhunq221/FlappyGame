@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    @author Lars Harmsen
-    Copyright (c) <2014> <Lars Harmsen - Quchen>
--->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.quchen.flappycow">
-
-    <!-- Remove the following permissions, if you don't want ads -->
-        <!-- Used to request banner and interstitial ads. -->
-        <uses-permission android:name="android.permission.INTERNET" />
-        <!-- Used to avoid sending an ad request if there is no connectivity. -->
-        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- Remove the lines above, if you don't want ads -->
     
     <application
         android:allowBackup="true"
@@ -55,17 +43,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
-        <!-- Remove the lines below, if you don't want ads -->
-            <meta-data android:name="com.google.android.gms.version"
-                android:value="@integer/google_play_services_version"/>
-            <activity
-                android:name="com.google.android.gms.ads.AdActivity"
-                android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
-
-            <activity android:name="com.sec.android.ad.AdActivity"
-                android:configChanges="keyboardHidden|orientation|screenSize"/>
-        <!-- Remove the lines above, if you don't want ads -->
         
     </application>
 

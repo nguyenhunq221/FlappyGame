@@ -1,17 +1,9 @@
-/**
- * An obstacle: spider + logHead
- * 
- * @author Lars Harmsen
- * Copyright (c) <2014> <Lars Harmsen - Quchen>
- */
-
 package com.quchen.flappycow.sprites;
 
 import com.quchen.flappycow.Game;
 import com.quchen.flappycow.GameView;
 import com.quchen.flappycow.MainActivity;
 import com.quchen.flappycow.R;
-
 import android.graphics.Canvas;
 
 public class Obstacle extends Sprite{

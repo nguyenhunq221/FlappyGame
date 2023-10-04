@@ -2,10 +2,8 @@ package com.quchen.flappycow.sprites;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-
 import com.quchen.flappycow.Game;
 import com.quchen.flappycow.GameView;
-
 
 public class Accessory extends Sprite {
     

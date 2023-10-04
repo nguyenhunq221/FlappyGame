@@ -1,11 +1,3 @@
-/**
- * GameView
- * Probably the most important class for the game
- * 
- * @author Lars Harmsen
- * Copyright (c) <2014> <Lars Harmsen - Quchen>
- */
-
 package com.quchen.flappycow;
 
 import java.util.ArrayList;

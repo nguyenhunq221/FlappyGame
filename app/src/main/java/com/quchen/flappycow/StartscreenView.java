@@ -1,9 +1,3 @@
-/**
- * Splashscreen with buttons.
- * 
- * @author Lars Harmsen
- * Copyright (c) <2014> <Lars Harmsen - Quchen>
- */
 package com.quchen.flappycow;
 
 import android.content.Intent;
@@ -17,7 +11,6 @@ import com.google.android.gms.games.Games;
 public class StartscreenView extends View{
     
     private static Bitmap splash = null;
-    private static Bitmap logInOut = null;
     private static Bitmap play = null;
     private static Bitmap achievements = null;
     private static Bitmap leaderboard = null;
@@ -61,9 +54,7 @@ public class StartscreenView extends View{
             splash = Util.getBitmapAlpha8(mainActivity, R.drawable.splash);
         }
         srcSplash = new Rect(0, 0, splash.getWidth(), splash.getHeight());
-        if(logInOut == null) {
-            logInOut = Util.getBitmapAlpha8(mainActivity, R.drawable.signinout);
-        }
+
         if(play == null) {
             play = Util.getBitmapAlpha8(mainActivity, R.drawable.play_button);
         }
@@ -88,7 +79,6 @@ public class StartscreenView extends View{
         }
         
         setWillNotDraw(false);
-        setOnline(false);
         setSpeaker(true);
         setSocket(0);
     }
@@ -100,15 +90,7 @@ public class StartscreenView extends View{
             srcSpeaker = new Rect(0, speaker.getHeight()/2, speaker.getWidth(), speaker.getHeight());
         }
     }
-    
-    public void setOnline(boolean online) {
-        this.online = online;
-        if(online) {
-            srcLogInOut = new Rect(0, logInOut.getHeight()/2, logInOut.getWidth(), logInOut.getHeight());
-        } else {
-            srcLogInOut = new Rect(0, 0, logInOut.getWidth(), logInOut.getHeight()/2);
-        }
-    }
+
     
     public void setSocket(int level) {
         srcSocket = new Rect(0, level*socket.getHeight()/4, socket.getWidth(), (level+1)*socket.getHeight()/4);
@@ -117,7 +99,6 @@ public class StartscreenView extends View{
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawBitmap(splash, srcSplash, dstSplash, null);
-        canvas.drawBitmap(logInOut, srcLogInOut, dstLogInOut, null);
         canvas.drawBitmap(play, srcPlay, dstPlay, null);
         canvas.drawBitmap(speaker, srcSpeaker, dstSpeaker, null);
         canvas.drawBitmap(info, srcInfo, dstInfo, null);

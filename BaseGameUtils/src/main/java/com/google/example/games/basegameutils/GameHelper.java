@@ -894,7 +894,7 @@ public class GameHelper implements GoogleApiClient.ConnectionCallbacks,
             GameHelperUtils.printMisconfiguredDebugInfo(mAppContext);
         }
 
-        showFailureDialog();
+
         mConnecting = false;
         notifyListener(false);
     }
