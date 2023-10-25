@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.View;
-import com.google.android.gms.games.Games;
 
 public class StartscreenView extends View{
     
@@ -118,10 +117,7 @@ public class StartscreenView extends View{
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         dstSplash = new Rect(0, 0, getWidth(), getHeight());
-        dstLogInOut = new Rect(    (int)(getWidth()*REGION_LOG_IN_OUT[0]),
-                                (int)(getHeight()*REGION_LOG_IN_OUT[1]),
-                                (int)(getWidth()*REGION_LOG_IN_OUT[2]),
-                                (int)(getHeight()*REGION_LOG_IN_OUT[3]));
+
         dstPlay = new Rect(    (int)(getWidth()*REGION_PLAY[0]),
                             (int)(getHeight()*REGION_PLAY[1]),
                             (int)(getWidth()*REGION_PLAY[2]),
@@ -152,16 +148,7 @@ public class StartscreenView extends View{
     public boolean onTouchEvent(MotionEvent event) {
         performClick();
         if(event.getAction() == MotionEvent.ACTION_DOWN) {
-            if(    (event.getX() > REGION_LOG_IN_OUT[0] * getWidth())
-                    && (event.getX() < REGION_LOG_IN_OUT[2] * getWidth())
-                    && (event.getY() > REGION_LOG_IN_OUT[1] * getHeight())
-                    && (event.getY() < REGION_LOG_IN_OUT[3] * getHeight()) ) {
-                if(online) {
-                    mainActivity.logout();
-                } else {
-                    mainActivity.login();
-                }
-            } else if(    (event.getX() > REGION_PLAY[0] * getWidth())
+       if(    (event.getX() > REGION_PLAY[0] * getWidth())
                     && (event.getX() < REGION_PLAY[2] * getWidth())
                     && (event.getY() > REGION_PLAY[1] * getHeight())
                     && (event.getY() < REGION_PLAY[3] * getHeight()) ) {
@@ -176,19 +163,6 @@ public class StartscreenView extends View{
                     && (event.getY() > REGION_INFO[1] * getHeight())
                     && (event.getY() < REGION_INFO[3] * getHeight()) ) {
                 mainActivity.startActivity(new Intent("com.quchen.flappycow.About"));
-            } else if(online) {
-                if(    (event.getX() > REGION_ACHIEVEMENT[0] * getWidth())
-                        && (event.getX() < REGION_ACHIEVEMENT[2] * getWidth())
-                        && (event.getY() > REGION_ACHIEVEMENT[1] * getHeight())
-                        && (event.getY() < REGION_ACHIEVEMENT[3] * getHeight()) ) {
-                    mainActivity.startActivityForResult(Games.Achievements.getAchievementsIntent(mainActivity.getApiClient()), 0);;
-                } else if(    (event.getX() > REGION_LEADERBOARD[0] * getWidth())
-                        && (event.getX() < REGION_LEADERBOARD[2] * getWidth())
-                        && (event.getY() > REGION_LEADERBOARD[1] * getHeight())
-                        && (event.getY() < REGION_LEADERBOARD[3] * getHeight()) ) {
-                    mainActivity.startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mainActivity.getApiClient(),
-                            getResources().getString(R.string.leaderboard_highscore)), 0);
-                }
             }
         }
         return true;

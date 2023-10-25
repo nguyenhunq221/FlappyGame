@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import com.quchen.flappycow.Game.MyHandler;
 import com.quchen.flappycow.sprites.Background;
 import com.quchen.flappycow.sprites.Coin;
@@ -17,7 +16,6 @@ import com.quchen.flappycow.sprites.PlayableCharacter;
 import com.quchen.flappycow.sprites.PowerUp;
 import com.quchen.flappycow.sprites.Toast;
 import com.quchen.flappycow.sprites.Tutorial;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -300,6 +298,15 @@ public class GameView extends SurfaceView{
     /**
      * Checks collisions and performs the action
      */
+
+    //Kiểm tra chướng ngại vật
+
+    /**
+     * Vòng lặp for được sử dụng để duyệt qua danh sách các "obstacle" (rào cản) trong trò chơi.
+     * Dòng code if(o.isColliding(player)) kiểm tra xem có va chạm giữa đối tượng "player" (người chơi) và rào cản hiện tại không.
+     * Nếu có va chạm, phương thức "onCollision"
+     * của đối tượng rào cản đó được gọi để xử lý sự kiện va chạm, sau đó phương thức "gameOver" được gọi để kết thúc trò chơi.
+     */
     private void checkCollision(){
         for(Obstacle o : obstacles){
             if(o.isColliding(player)){
@@ -314,6 +321,8 @@ public class GameView extends SurfaceView{
                 i--;
             }
         }
+
+        //kiểm tra xem người chơi có chạm vào cạnh của màn hình không.
         if(player.isTouchingEdge()){
             gameOver();
         }

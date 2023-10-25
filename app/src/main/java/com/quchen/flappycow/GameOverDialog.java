@@ -48,7 +48,7 @@ public class GameOverDialog extends Dialog {
                         AccomplishmentBox.savesAreOffline(game);
                     }
                 }
-                
+
                 dismiss();
                 game.finish();
             }

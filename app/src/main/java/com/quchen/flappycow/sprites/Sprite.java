@@ -103,6 +103,34 @@ public abstract class Sprite {
      * @param sprite
      * @return
      */
+
+    /**
+     -Phương thức "isColliding" trong đoạn mã  kiểm tra va chạm giữa hai đối tượng sprite. Nó sử dụng khái niệm "độ dung sai va chạm"
+     để xác định xem hai đối tượng sprite có đè lên nhau hay không.
+
+     -Phương thức "getCollisionTolerance()" được sử dụng để lấy giá trị của độ dung sai va chạm. Giá trị này được giả định là một
+     giá trị động được liên kết với sprite.
+
+     -Quy tắc kiểm tra va chạm hoạt động như sau:
+
+     -Nó so sánh tọa độ x của hai sprite bằng cách thêm giá trị độ dung sai va chạm.
+      Nếu tổng của tọa độ x của sprite hiện tại (được biểu thị bởi "this.x")
+     và độ dung sai va chạm ("getCollisionTolerance()") nhỏ hơn tổng của tọa độ x
+     của sprite mục tiêu (được biểu thị bởi "sprite.x") và chiều rộng của sprite mục tiêu ("sprite.width"),
+     điều đó cho thấy có thể có va chạm trên trục x.
+
+     -Nó thực hiện một so sánh tương tự cho tọa độ y của hai sprite cộng với giá trị độ dung sai va chạm.
+     Nếu tổng của tọa độ y của sprite hiện tại (được biểu thị bởi "this.y") và độ dung sai va chạm ("getCollisionTolerance()")
+     nhỏ hơn tổng của tọa độ y của sprite mục tiêu (được biểu thị bởi "sprite.y") và chiều cao của sprite mục tiêu ("sprite.height"),
+     điều đó cho thấy có thể có va chạm trên trục y.
+
+     -Nếu cả hai so sánh trên trục x và trục y đều trả về giá trị true,
+     điều đó có nghĩa là hai sprite đang đè lên nhau với độ dung sai va chạm đã được chỉ định.
+     Trong trường hợp này, phương thức trả về true, cho biết có va chạm giữa hai sprite.
+
+     -Nếu các điều kiện được đề cập không được đáp ứng, phương thức trả về false, cho biết không có va chạm giữa hai sprite.
+     */
+
     public boolean isColliding(Sprite sprite){
         if(this.x + getCollisionTolerance() < sprite.x + sprite.width
                 && this.x + this.width > sprite.x + getCollisionTolerance()
@@ -221,11 +249,12 @@ public abstract class Sprite {
     public int getWidth() {
         return width;
     }
-    
+
     /**
-     * Gives a value that will be tolerated when touching a sprite.
-     * Because my images have some whitespace to the edge.
-     * @return
+     Độ dung sai va chạm (collision tolerance) là một giá trị được sử dụng để xác
+     định mức độ chấp nhận được của việc xếp chồng hai đối tượng trong quá trình kiểm tra va chạm.
+     Nếu hai đối tượng sprite đè lên nhau với khoảng cách nhỏ hơn độ dung sai va chạm,
+     thì được coi là có va chạm.
      */
     private int getCollisionTolerance(){
         // 25 @ 720x1280 px
